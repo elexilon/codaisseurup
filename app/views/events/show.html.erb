@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.name %></div>
+
+  <div class="panel-body">
+
+    <p>Address: <%= @event.name %></p>
+    <p>Host: <%= @event.description %></p>
+
+    <hr>
+    <p>Number Guests: <%= @event.capacity %></p>
+    <hr>
+
+
+
+    <p>Location: <%= @event.location %></p>
+    <p>Date: <%= @event.starts_at %></p>
+
+    <br>
+    <br>
+
+    <p>Price: <%= @event.price %></p>
+    <p>Capacity: <%= @event.capacity %></p>
+
+    <p>Food included: <%= @event.includes_food %></p>
+    <p>Drinks included: <%= @event.includes_drinks %></p>
+
+    <br>
+
+    <p>Status: <%= @event.active %></p>
+
+    <br>
+    <br>
+
+    <p>Categories: <%= @event.active %></p>
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>
