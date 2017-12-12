@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :categories
 
   validates :name, presence: true
   validates :starts_at, presence: true
@@ -13,6 +14,6 @@ class Event < ApplicationRecord
 
   def start_must_be_before_end_time
       errors.add(:starts_at, "Must be before end time") unless
-          starts_at < ends_at
+          starts_at.to_datetime.next_day(1) < ends_at.to_datetime
   end
 end

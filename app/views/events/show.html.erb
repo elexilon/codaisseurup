@@ -33,6 +33,11 @@
 
     <p>Categories: <%= @event.active %></p>
 
+    <h4>Themes</h4>
+    <% @categories.each do |cate| %>
+      <span class="label label-success"><%= cate.name %></span>
+    <% end %>
+
   </div>
 
 </div>

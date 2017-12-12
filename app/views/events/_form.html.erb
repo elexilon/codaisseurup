@@ -1,21 +1,30 @@
 <%= form_for @event do |f| %>
 
-<div class="form-group">
+<div class="form-group col-md-12">
   <label>name</label>
   <%= f.text_field :name, placeholder: "Event name", class: "form-control" %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-md-12">
   <label>Description</label>
   <%= f.text_area :description, rows: 5, placeholder: "Say something about your event", class: "form-control" %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-md-12">
   <label>Location</label>
   <%= f.text_field :location, placeholder: "Location", class: "form-control" %>
 </div>
 
-<div class="form-group">
+<div class="form-group col-md-12">
+  <label>Categories</label>
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+    <div class="form-group">
+      <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+    </div>
+  <% end %>
+</div>
+
+<div class="form-group col-md-12">
   <label>Price</label>
   <div class="input-group">
     <div class="input-group-addon">€</div>
@@ -23,28 +32,52 @@
   </div>
 </div>
 
-<div class="form-group">
+<div class="form-group col-md-12">
   <label>Capacity</label>
   <div class="input-group">
     <%= f.number_field :capacity, placeholder: "0", class: "form-control" %>
   </div>
 </div>
 
-<div class="form-group">
-  <label>Start date</label>
-  <div class="input-group">
-   <%= datetime_select("starts_at", "End date", default: DateTime.now.to_date) %>
-  </div>
 
+<div class="form-group col-md-6">
+  <label>Start Date</label>
+    <div class='input-group date' id='datetimepicker6'>
+        <%= f.text_field :starts_at, placeholder: "#{DateTime.now.to_date.to_s} 00:00:00 UTC", class: "form-control" %>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
 </div>
 
-<div class="form-group">
-  <label>End date</label>
-  <div class="input-group">
-   <%= datetime_select("ends_at", "End date", default: 1.days.from_now) %>
-  </div>
 
+<div class="form-group col-md-6">
+  <label>End Date</label>
+    <div class='input-group date' id='datetimepicker7'>
+        <%= f.text_field :ends_at, placeholder: "#{DateTime.now.next_day(1).to_date.to_s} 00:00:00 UTC", class: "form-control " %>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
 </div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:SS UTC'});
+        $('#datetimepicker7').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:SS UTC',
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date.subtract('days', 1));
+        });
+    });
+</script>
 
 
 
@@ -52,14 +85,17 @@
 <hr>
 <br>
 
-<label>Amenities</label>
 
 
-<div class="form-group">
-Food included  <%= f.check_box :includes_food %>
-</div>
-<div class="form-group">
-Drinks included  <%= f.check_box :includes_drinks %>
+
+<div class="form-group col-md-12">
+  <label>Amenities</label>
+  <div class="input-group">
+    Food included  <%= f.check_box :includes_food %>
+  </div>
+  <div class="input-group">
+    Drinks included  <%= f.check_box :includes_drinks %>
+  </div>
 </div>
 
 
@@ -67,10 +103,13 @@ Drinks included  <%= f.check_box :includes_drinks %>
 <hr>
 <br>
 
-<label>Amenities</label>
 
-<div class="form-group">
-Activate <%= f.check_box :active %>
+
+<div class="form-group col-md-12">
+  <label>Status</label>
+  <div class="input-group">
+  Activate <%= f.check_box :active %>
+  </div>
 </div>
 
 
