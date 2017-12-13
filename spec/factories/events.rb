@@ -7,6 +7,7 @@ FactoryBot.define do
     capacity            100
     includes_food       true
     includes_drinks     true
+    active              true
     starts_at           DateTime.now
     ends_at             DateTime.now.next_day(1)
     user                { build(:user) }

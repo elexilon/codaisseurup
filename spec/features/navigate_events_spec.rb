@@ -22,4 +22,5 @@ describe "Navigating events" do
   expect(current_path).to eq(event_path(event))
   end
 
+
 end

@@ -66,4 +66,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 group :test do
   gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'shoulda-matchers', '~> 3.1'
 end
