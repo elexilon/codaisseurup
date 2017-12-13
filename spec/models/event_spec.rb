@@ -92,7 +92,7 @@ RSpec.describe Event, type: :model do
   end
 
 
-  describe "association with theme" do
+  describe "association with category" do
     let(:event) { create :event }
 
     let(:category1) { create :category, name: "Bright", events: [event] }
