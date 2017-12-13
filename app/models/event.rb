@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   validates :active,      presence: true
   validates :description, presence: true, length: { maximum: 500 }
 
-  validate :start_must_be_before_end_time
+  #validate :start_must_be_before_end_time
 
   def correct_date?
     starts_at.strftime("%m/%d/%Y") < ends_at.strftime("%m/%d/%Y")
