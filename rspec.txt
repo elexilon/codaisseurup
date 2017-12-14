@@ -1,0 +1,59 @@
+
+Current user viewing the list of events
+[32m  shows all his events[0m
+[32m  does not show other users events[0m
+
+Navigating events
+[32m  allows navigation from the detail page to the listing page[0m
+[32m  allows navigation from the listing page to the detail page[0m
+
+Viewing an individual event
+[32m  shows the event's details[0m
+
+Event
+  validations
+[32m    is invalid without name[0m
+[32m    is invalid without description[0m
+[32m    is invalid without location[0m
+[32m    is invalid without price[0m
+[32m    is invalid without capacity[0m
+[32m    is invalid without active[0m
+[32m    is invalid with a name longer than 255 characters[0m
+[32m    is invalid with a location longer than 50 characters[0m
+[32m    is invalid with a description longer than 500 characters[0m
+[32m    is invalid with starts at date is the same or biger than ends at date[0m
+  #correct_date?
+[32m    returns true if the date is correct[0m
+  #bargain?
+[32m    returns true if the price is smaller than 30 EUR[0m
+  .order_by_price
+[32m    returns a sorted array of events by prices[0m
+  association with user
+[32m    belongs to a user[0m
+  association with category
+[32m    has categorys[0m
+
+Profile
+  .by_initial
+    matching letters
+[32m      returns the profiles that match the initial[0m
+    non-matching letters
+[32m      is sorted on first_name[0m
+  association with user
+[32m    belongs to a user[0m
+
+shared/_navbar.html.erb
+  without profile
+[32m    renders email[0m
+  with profile
+[32m    renders first and last name[0m
+
+shared/_navbar.html.erb
+  login user
+[32m    renders Log in[0m
+  Signup user
+[32m    renders Sign up[0m
+
+Finished in 0.87765 seconds (files took 1.64 seconds to load)
+[32m27 examples, 0 failures[0m
+
