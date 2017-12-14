@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+header{
+  color: Red;
+}
+h1{
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-align: center;
+}
+a:link{
+  background-color: red;
+}
+a:hover{
+  background-color: yellow;
+}
+a:focus{
+  color: white;
+  background-color: purple;
+}

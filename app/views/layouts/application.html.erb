@@ -3,29 +3,24 @@
   <head>
     <title>Codaisseurup</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
   </head>
 
   <body>
-
     <%= render "shared/navbar" %>
     <%= render "shared/carousel" %>
-    <%= render "shared/validation_errors" %>
-    <div class="container marketing">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container marketing" style="min-height: 601px;">
+      <% if notice != nil %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+
+      <% if alert != nil %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
       <%= yield %>
-
-      <hr class="featurette-divider">
-      <footer>
-          <p class="pull-right"><a href="#">Back to top</a></p>
-          <p>© 2017 Elexilon, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
     </div>
-
+    <%= render "shared/footer" %>
   </body>
 </html>

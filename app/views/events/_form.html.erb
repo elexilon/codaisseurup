@@ -1,8 +1,7 @@
 <%= form_for @event do |f| %>
 
-<% @event.errors.full_messages.each do |msg| %>
-  <p class="alert alert-danger"><%= msg %></p>
-<% end %>
+<%= render "shared/validation_errors" %>
+
 
 <div class="form-group col-md-12">
   <label>name</label>
