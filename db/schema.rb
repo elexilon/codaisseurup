@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212222555) do
+ActiveRecord::Schema.define(version: 20171214080142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20171212222555) do
     t.integer "capacity"
     t.boolean "includes_food", default: false
     t.boolean "includes_drinks", default: false
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.datetime "starts_at", default: "1900-01-01 00:00:00"
+    t.datetime "ends_at", default: "1900-01-01 00:00:00"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
