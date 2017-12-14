@@ -10,14 +10,22 @@
   </head>
 
   <body>
+
     <%= render "shared/navbar" %>
     <%= render "shared/carousel" %>
+    <%= render "shared/validation_errors" %>
+    <div class="container marketing">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="container">
       <%= yield %>
+
+      <hr class="featurette-divider">
+      <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+          <p>© 2017 Elexilon, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
     </div>
+
   </body>
 </html>

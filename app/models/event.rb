@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   validates :ends_at,     presence: true
   validates :price,       presence: true
   validates :capacity,    presence: true
-  validates :active,      presence: true
+  #validates :active,      presence: true
   validates :description, presence: true, length: { maximum: 500 }
 
   validate :start_must_be_before_end_time

@@ -27,11 +27,11 @@ RSpec.describe Event, type: :model do
       event.valid?
       expect(event.errors).to have_key(:capacity)
     end
-    it "is invalid without active" do
-      event = Event.new(active: nil)
-      event.valid?
-      expect(event.errors).to have_key(:active)
-    end
+    #it "is invalid without active" do
+    #  event = Event.new(active: nil)
+    #  event.valid?
+    #  expect(event.errors).to have_key(:active)
+    #end
 
     it "is invalid with a name longer than 255 characters"do
       event = Event.new(name: "a"*256)

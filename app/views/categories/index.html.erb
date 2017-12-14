@@ -1,0 +1,14 @@
+  <div class="row">
+    <% @categories.each do |cate| %>
+      <% if cate.events.count > 0 %>
+        <% cate.events.each do |eve| %>
+          <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2 ><%= eve.name %></h2>
+            <p><%= eve.starts_at %></p>
+            <p><%= link_to "View", eve, class: "btn btn-default" %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
