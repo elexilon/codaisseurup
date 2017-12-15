@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "categories#index"
 
   devise_for :users
+  resources :photos
   resources :users, only: [:show]
   resources :events, except: [:destroy]
   resources :profiles, only: [:new, :edit, :create, :update]

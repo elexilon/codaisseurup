@@ -6,7 +6,9 @@
           <% cate.events.each do |eve| %>
             <div class="col-lg-4">
               <p><%= link_to eve do  %>
-                <%= image_tag eve.photos.first.image, :class => "img-thumbnail", style: 'height:200px;width:auto;' %>
+                <% if eve.photos.any? %>
+                  <%= image_tag eve.photos.first.image, :class => "img-thumbnail", style: 'height:200px;width:auto;' %>
+                <% end %>
               <% end %> </p>
               <h2 ><%= eve.name %></h2>
               <p><%= eve.starts_at %></p>

@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @categories = @event.categories
-    @photos = @room.photos
+    @photos = @event.photos
   end
 
   def new
@@ -20,7 +20,8 @@ class EventsController < ApplicationController
 
     if @event.save
       image_params.each do |image|
-      @event.photos.create(image: image)
+        @event.photos.create(image: image)
+      end
       redirect_to @event, notice: "Event created"
     else
       render :new
@@ -38,8 +39,8 @@ class EventsController < ApplicationController
   def update
     if @event.update(event_params)
       image_params.each do |image|
-      @event.photos.create(image: image)
-
+        @event.photos.create(image: image)
+      end
       redirect_to @event, notice: "Event updated"
     else
       render :edit
