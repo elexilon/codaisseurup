@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Registration.destroy_all
 Photo.destroy_all
 Category.destroy_all
 Event.destroy_all
@@ -42,14 +42,22 @@ eves = Event.create!([
 event_count = Event.count
 puts "#{event_count} events were created."
 
-photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264380/red-rocks-winter-concert-1_567ca252-f0ae-5102-065b6b925d495a29_tq5vqx.jpg", event: eves[1])
-photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/heavy-k-720x431_hhjhyu.jpg", event: eves[1])
-photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/image_dxhuae.jpg", event: eves[1])
+#photo1 = Photo.create!(remote_image_url: "", event: eves[1])
+#photo2 = Photo.create!(remote_image_url: "", event: eves[1])
+#photo3 = Photo.create!(remote_image_url: "", event: eves[1])
 
-photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/PROD-Waving-during-the-concert_rxdpob.jpg", event: eves[2])
-photo5 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/berghain_kl6ouf.jpg", event: eves[2])
-photo6 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007287/20161005-zsogv_l4urst.png", event: eves[2])
+#photo4 = Photo.create!(remote_image_url: "", event: eves[2])
+#photo5 = Photo.create!(remote_image_url: "", event: eves[2])
+#photo6 = Photo.create!(remote_image_url: "", event: eves[2])
 
-photo7 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264380/red-rocks-winter-concert-1_567ca252-f0ae-5102-065b6b925d495a29_tq5vqx.jpg", event: eves[0])
-photo8 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/heavy-k-720x431_hhjhyu.jpg", event: eves[0])
-photo9 = Photo.create!(remote_image_url: "http://res.cloudinary.com/elexilon/image/upload/v1513264377/image_dxhuae.jpg", event: eves[0])
+#photo7 = Photo.create!(remote_image_url: "", event: eves[0])
+#photo8 = Photo.create!(remote_image_url: "", event: eves[0])
+#photo9 = Photo.create!(remote_image_url: "", event: eves[0])
+
+photo_count = Photo.count
+puts "#{photo_count} photos were created."
+Registration.create!(event: eves[1], user: user1, status: true, guests_count: 10)
+Registration.create!(event: eves[2], user: user2, status: true, guests_count: 20)
+
+registration_count = Registration.count
+puts "#{registration_count} registrations were created."

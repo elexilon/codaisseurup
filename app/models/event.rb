@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
   has_many :photos
+  has_many :registrations, dependent: :destroy
+  has_many :guests, through: :registrations, source: :user
 
   BARGAIN_PRICE = 30
 
@@ -24,9 +26,9 @@ class Event < ApplicationRecord
     price < BARGAIN_PRICE
   end
 
-  def self.order_by_price
-    order :price
-  end
+  scope :order_by_name, -> { order("name asc") }
+  scope :published, -> { where(active: true) }
+  scope :order_by_price, -> { order("price asc") }
 
   private
 
